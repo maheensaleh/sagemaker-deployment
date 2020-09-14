@@ -19,7 +19,7 @@ def review_to_words(review):
     words = text.split() # Split string into words
     words = [w for w in words if w not in stopwords.words("english")] # Remove stopwords
     words = [PorterStemmer().stem(w) for w in words] # stem
-    
+    print("converted to words")
     return words
 
 def convert_and_pad(word_dict, sentence, pad=500):
@@ -33,5 +33,5 @@ def convert_and_pad(word_dict, sentence, pad=500):
             working_sentence[word_index] = word_dict[word]
         else:
             working_sentence[word_index] = INFREQ
-            
+    print("converted and padded")
     return working_sentence, min(len(sentence), pad)
